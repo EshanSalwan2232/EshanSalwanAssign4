@@ -8,4 +8,6 @@
     <string name="download">Download</string>
     <string name="weather">Weather</string>
     <string name="all_tabs">All Tabs</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello file fragment</string>
 </resources>
