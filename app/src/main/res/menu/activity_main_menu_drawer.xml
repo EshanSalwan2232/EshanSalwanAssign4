@@ -3,25 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/activity_main_drawer_news"
-            android:icon="@drawable/ic_dashboard_white_24dp"
-            android:title="Fil d'actualité" />
-    </group>
-
-    <item android:title="Configuration">
+    <item
+        android:title="@string/all_tabs">
         <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/activity_main_drawer_profile"
-                    android:icon="@drawable/ic_account_box_white_24dp"
-                    android:title="Profil" />
-                <item
-                    android:id="@+id/activity_main_drawer_settings"
-                    android:icon="@drawable/ic_settings_applications_white_24dp"
-                    android:title="Paramètres" />
-            </group>
+        <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/home"
+                android:icon="@drawable/house_icon"
+                android:title="@string/home" />
+            <item
+                android:id="@+id/download"
+                android:icon="@drawable/download_icon"
+                android:title="@string/download" />
+            <item
+                android:id="@+id/weather"
+                android:icon="@drawable/weather_icon"
+                android:title="@string/weather" />
+            <item
+                android:id="@+id/fileContent"
+                android:icon="@drawable/content"
+                android:title="File Content" />
+            <item
+                android:id="@+id/settings"
+                android:icon="@drawable/setting_icon"
+                android:title="Settings" />
+        </group>
         </menu>
     </item>
 
