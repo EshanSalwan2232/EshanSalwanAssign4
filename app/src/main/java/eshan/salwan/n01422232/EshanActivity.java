@@ -11,7 +11,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
@@ -109,7 +113,6 @@ public class EshanActivity extends AppCompatActivity implements NavigationView.O
             default:
                 break;
         }
-
         this.drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -119,5 +122,33 @@ public class EshanActivity extends AppCompatActivity implements NavigationView.O
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.eshan_main_frame_layout, fragment).commit();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.eshanHelp:
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("https://humber.ca/"));
+                startActivity(i);
+                break;
+            case R.id.eshanSettings:
+                startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
+                break;
+            case R.id.eshanHome:
+                if (this.eshan_home == null) this.eshan_home = EshanHome.newInstance();
+                startTransactionFragment(this.eshan_home);
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

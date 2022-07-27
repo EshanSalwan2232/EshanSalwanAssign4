@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/eshanHelp"
+        android:icon="@drawable/setting_icon"
+        android:title="@string/menu_help"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/eshanSettings"
+        android:icon="@drawable/house_icon"
+        android:title="@string/menu_settings"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/eshanHome"
+        android:icon="@drawable/content"
+        android:title="@string/menu_home"
+        app:showAsAction="ifRoom" />
+</menu>
