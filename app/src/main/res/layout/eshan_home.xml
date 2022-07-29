@@ -15,9 +15,11 @@
         android:layout_width="131dp"
         android:layout_height="37dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="53dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="220dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,13 +41,35 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="194dp"
         android:layout_marginEnd="101dp"
-        android:ems="10"
-        android:inputType="text"
         android:digits="0123456789qwertzuiopasdfghjklyxcvbnm"
+        android:ems="10"
         android:hint="Enter some info"
+        android:inputType="text"
         android:maxLength="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <eshan.salwan.n01422232.MyView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="279dp"
+        android:layout_marginEnd="159dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

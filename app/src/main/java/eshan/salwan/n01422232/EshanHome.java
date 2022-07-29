@@ -1,5 +1,10 @@
 package eshan.salwan.n01422232;
 
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Shader;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.google.android.material.canvas.CanvasCompat;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -62,6 +69,7 @@ public class EshanHome extends Fragment {
         View view = inflater.inflate(R.layout.eshan_home, container, false);
 
     CurrentDate(view);
+
 
         return view;
     }
