@@ -17,8 +17,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 public class EshanActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     //FOR DESIGN
@@ -75,7 +78,19 @@ public class EshanActivity extends AppCompatActivity implements NavigationView.O
 
     private void configureDrawerLayout() {
         this.drawerLayout = (DrawerLayout) findViewById(R.id.eshan_drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close){
+            @Override
+            public void onDrawerOpened(@NonNull View drawerView) {
+                Snackbar snackbar = Snackbar.make(drawerView, R.string.snackbar, Snackbar.LENGTH_SHORT);
+                snackbar.show();
+            }
+
+            @Override
+            public void onDrawerClosed(@NonNull View drawerView) {
+                Toast toast = Toast.makeText(getApplicationContext(), R.string.toast, Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        };
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
     }
@@ -89,17 +104,19 @@ public class EshanActivity extends AppCompatActivity implements NavigationView.O
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        switch (id){
+        switch (id) {
             case R.id.home:
                 if (this.eshan_home == null) this.eshan_home = EshanHome.newInstance();
                 startTransactionFragment(this.eshan_home);
                 break;
             case R.id.download:
-                if (this.salwan_download == null) this.salwan_download = SalwanDownload.newInstance();
+                if (this.salwan_download == null)
+                    this.salwan_download = SalwanDownload.newInstance();
                 startTransactionFragment(this.salwan_download);
                 break;
             case R.id.weather:
-                if (this.n01422232_weather == null) this.n01422232_weather = N01422232Weather.newInstance();
+                if (this.n01422232_weather == null)
+                    this.n01422232_weather = N01422232Weather.newInstance();
                 startTransactionFragment(this.n01422232_weather);
                 break;
             case R.id.fileContent:
@@ -107,7 +124,8 @@ public class EshanActivity extends AppCompatActivity implements NavigationView.O
                 startTransactionFragment(this.eshan_file);
                 break;
             case R.id.settings:
-                if (this.settings_screen == null) this.settings_screen = SettingsScreen.newInstance();
+                if (this.settings_screen == null)
+                    this.settings_screen = SettingsScreen.newInstance();
                 startTransactionFragment(this.settings_screen);
                 break;
             default:
@@ -118,7 +136,7 @@ public class EshanActivity extends AppCompatActivity implements NavigationView.O
     }
 
     private void startTransactionFragment(Fragment fragment) {
-        if(!fragment.isVisible()){
+        if (!fragment.isVisible()) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.eshan_main_frame_layout, fragment).commit();
         }

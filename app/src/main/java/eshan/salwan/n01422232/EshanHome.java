@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,6 +59,23 @@ public class EshanHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.eshan_home, container, false);
+        View view = inflater.inflate(R.layout.eshan_home, container, false);
+
+    CurrentDate(view);
+
+        return view;
+    }
+
+    Calendar calendar;
+    SimpleDateFormat simpleDateFormat;
+    String Date;
+    TextView textView;
+
+    private void CurrentDate(View view) {
+        textView = view.findViewById(R.id.date);
+        calendar = Calendar.getInstance();
+        simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date = simpleDateFormat.format(calendar.getTime());
+        textView.setText(Date);
     }
 }
