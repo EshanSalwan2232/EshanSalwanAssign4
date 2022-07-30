@@ -1,6 +1,9 @@
 package eshan.salwan.n01422232;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,8 +13,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import java.io.InputStream;
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,23 +84,77 @@ public class SalwanDownload extends Fragment implements AdapterView.OnItemClickL
         productListView.setAdapter(productListAdapter);
         productListView.setOnItemClickListener(this);
 
+        imageView = view.findViewById(R.id.imageView3);
+        progressBar = view.findViewById(R.id.progress);
+        progressBar.setVisibility(View.INVISIBLE);
 
         return view;
     }
+
+    ImageView imageView;
+    ProgressBar progressBar;
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
 
-        //Product product = (Product) parent.getItemAtPosition(position);
-        Toast.makeText(activity, "you clicked on: " + downloadList[position], Toast.LENGTH_SHORT).show();
+        //Toast.makeText(activity, "you clicked on: " + downloadList[position], Toast.LENGTH_SHORT).show();
 
-        if (position == 0){
-            //code
-        }else if(position == 1){
-            //code
-        }else {
-            //code
+        if (position == 0) {
+            MyAsyncTask asyncTask = new MyAsyncTask();
+            asyncTask.execute("https://www.science.org/do/10.1126/science.abi5787/full/main_puppies_1280p.jpg");
+        } else if (position == 1) {
+            MyAsyncTask asyncTask = new MyAsyncTask();
+            asyncTask.execute("https://www.theknot.com/tk-media/images/8d7f9239-ddb5-47e7-8c81-eb39283c8262~rs_1536.h");
+        } else {
+            MyAsyncTask asyncTask = new MyAsyncTask();
+            asyncTask.execute("https://exoplanets.nasa.gov/internal_resources/1806/");
+        }
+
+
+    }
+
+    private class MyAsyncTask extends AsyncTask<String, String, Bitmap> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Bitmap doInBackground(String... strings) {
+            Bitmap bitmap = null;
+            try {
+                Thread.sleep(5000);
+                URL ImageUrl = new URL(strings[0]);
+                HttpsURLConnection urlConnection = (HttpsURLConnection) ImageUrl.openConnection();
+
+                int responseCode = urlConnection.getResponseCode();
+                if (responseCode == HttpsURLConnection.HTTP_OK) {
+                    InputStream inputStream = urlConnection.getInputStream();
+
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    options.inPreferredConfig = Bitmap.Config.RGB_565;
+                    bitmap = BitmapFactory.decodeStream(inputStream, null, options);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+               // Toast.makeText(activity, "didnt work", Toast.LENGTH_SHORT).show();
+            }
+            return bitmap;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap bitmap) {
+            super.onPostExecute(bitmap);
+            if (imageView != null) {
+                progressBar.setVisibility(View.INVISIBLE);
+                imageView.setImageBitmap(bitmap);
+//            }else {
+//                p.show();
+//            }
+            }
+
         }
     }
 }
