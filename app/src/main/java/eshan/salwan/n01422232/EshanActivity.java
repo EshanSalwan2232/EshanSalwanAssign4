@@ -12,8 +12,10 @@ import androidx.fragment.app.Fragment;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -46,7 +48,7 @@ public class EshanActivity extends AppCompatActivity implements NavigationView.O
 
         if (this.eshan_home == null) this.eshan_home = EshanHome.newInstance();
         startTransactionFragment(this.eshan_home);
-    }
+        }
 
     @Override
     public void onBackPressed() {

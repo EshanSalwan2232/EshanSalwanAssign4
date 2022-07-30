@@ -1,5 +1,7 @@
 package eshan.salwan.n01422232;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
@@ -9,13 +11,21 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.canvas.CanvasCompat;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -67,12 +77,26 @@ public class EshanHome extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.eshan_home, container, false);
+        CurrentDate(view);
 
-    CurrentDate(view);
-
-
+        Button btn = view.findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               CreateFile(v, container.getContext());
+            }
+        });
         return view;
     }
+//    String Fulln = "Eshan Salwan";
+//        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Persistent", Context.MODE_PRIVATE);
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        editor.putString("Name", Fulln);
+//        editor.commit();
+//    }
 
     Calendar calendar;
     SimpleDateFormat simpleDateFormat;
@@ -86,4 +110,23 @@ public class EshanHome extends Fragment {
         Date = simpleDateFormat.format(calendar.getTime());
         textView.setText(Date);
     }
+
+    private void CreateFile(View v, Context context) {
+        EditText editText = v.findViewById(R.id.editText);
+
+        try {
+            File file = new File(context.getFilesDir(), "Eshan.txt");
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            fileOutputStream.write(editText.getText().toString().getBytes(Charset.forName("UTF-8")));
+            Toast.makeText(context, "Write to %s successful", Toast.LENGTH_SHORT).show();
+            editText.setText("");
+        }catch (NullPointerException | IOException e) {
+            e.printStackTrace();
+            Toast.makeText(context, "Write to file %s failed",  Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
