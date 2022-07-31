@@ -25,7 +25,7 @@
                 android:title="File Content" />
             <item
                 android:id="@+id/settings"
-                android:icon="@drawable/setting_icon"
+                android:icon="@drawable/setting_drawer"
                 android:title="Settings" />
         </group>
         </menu>
