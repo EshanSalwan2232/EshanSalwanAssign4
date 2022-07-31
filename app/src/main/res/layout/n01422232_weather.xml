@@ -10,7 +10,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView3"
         android:layout_width="88dp"
         android:layout_height="36dp"
         android:layout_marginStart="161dp"
@@ -23,12 +23,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:layout_width="273dp"
-        android:layout_height="390dp"
-        android:layout_marginStart="69dp"
-        android:layout_marginTop="113dp"
-        android:layout_marginEnd="69dp"
+    <Spinner
+        android:id="@+id/simpleSpinner"
+        android:layout_width="124dp"
+        android:layout_height="31dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="143dp"
+        android:layout_marginTop="171dp"
+        android:layout_marginEnd="144dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/displayWeather"
+        android:layout_width="255dp"
+        android:layout_height="221dp"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="324dp"
+        android:layout_marginEnd="78dp"
+        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

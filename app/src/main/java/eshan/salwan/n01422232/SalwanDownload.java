@@ -71,6 +71,8 @@ public class SalwanDownload extends Fragment implements AdapterView.OnItemClickL
     Activity activity;
     ListView productListView;
     ArrayAdapter<String> productListAdapter;
+    ImageView imageView;
+    ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -91,15 +93,9 @@ public class SalwanDownload extends Fragment implements AdapterView.OnItemClickL
         return view;
     }
 
-    ImageView imageView;
-    ProgressBar progressBar;
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
-
-        //Toast.makeText(activity, "you clicked on: " + downloadList[position], Toast.LENGTH_SHORT).show();
-
         if (position == 0) {
             MyAsyncTask asyncTask = new MyAsyncTask();
             asyncTask.execute("https://www.science.org/do/10.1126/science.abi5787/full/main_puppies_1280p.jpg");
@@ -110,8 +106,6 @@ public class SalwanDownload extends Fragment implements AdapterView.OnItemClickL
             MyAsyncTask asyncTask = new MyAsyncTask();
             asyncTask.execute("https://exoplanets.nasa.gov/internal_resources/1806/");
         }
-
-
     }
 
     private class MyAsyncTask extends AsyncTask<String, String, Bitmap> {
@@ -119,6 +113,8 @@ public class SalwanDownload extends Fragment implements AdapterView.OnItemClickL
         protected void onPreExecute() {
             super.onPreExecute();
             progressBar.setVisibility(View.VISIBLE);
+            progressBar.setMax(100);
+            progressBar.setProgress(50);
         }
 
         @Override
@@ -139,7 +135,6 @@ public class SalwanDownload extends Fragment implements AdapterView.OnItemClickL
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-               // Toast.makeText(activity, "didnt work", Toast.LENGTH_SHORT).show();
             }
             return bitmap;
         }

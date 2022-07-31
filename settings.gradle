@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "EshanAssign4"
 include ':app'
 include ':SharedPreferencesFavorites'
+include ':JsonTest'

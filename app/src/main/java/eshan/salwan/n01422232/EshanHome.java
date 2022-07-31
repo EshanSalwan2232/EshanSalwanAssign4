@@ -88,13 +88,13 @@ public class EshanHome extends Fragment {
         });
         return view;
     }
-//    String Fulln = "Eshan Salwan";
+//    String FullN = "Eshan Salwan";
 //        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Persistent", Context.MODE_PRIVATE);
 //    @Override
 //    public void onResume() {
 //        super.onResume();
 //        SharedPreferences.Editor editor = sharedPreferences.edit();
-//        editor.putString("Name", Fulln);
+//        editor.putString("Name", FullN);
 //        editor.commit();
 //    }
 
