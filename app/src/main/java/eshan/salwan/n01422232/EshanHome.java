@@ -112,7 +112,8 @@ public class EshanHome extends Fragment {
         textView.setText(Date);
     }
 
-private final static String FILE_NAME = "Eshan.txt";
+    public final static String FILE_NAME = "Eshan.txt";
+    FileOutputStream fileOutputStream;
 
     private void CreateFile(View v, Context context) {
         //create file
@@ -122,8 +123,7 @@ private final static String FILE_NAME = "Eshan.txt";
                     file.createNewFile();
                 }
             //write file
-            FileOutputStream fileOutputStream;
-            fileOutputStream = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
+            fileOutputStream = new FileOutputStream(file, true);
             fileOutputStream.write(editText.getText().toString().getBytes(Charset.forName("UTF-8")));
             Toast.makeText(context, "Write to file successful", Toast.LENGTH_SHORT).show();
 

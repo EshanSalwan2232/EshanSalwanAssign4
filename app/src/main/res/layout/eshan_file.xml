@@ -10,7 +10,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/fileContent"
         android:layout_width="358dp"
         android:layout_height="374dp"
         android:layout_marginStart="26dp"

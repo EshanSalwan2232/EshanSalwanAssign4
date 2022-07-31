@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.InputStream;
@@ -73,6 +74,7 @@ public class SalwanDownload extends Fragment implements AdapterView.OnItemClickL
     ArrayAdapter<String> productListAdapter;
     ImageView imageView;
     ProgressBar progressBar;
+    SharedPreference preference;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,13 +84,16 @@ public class SalwanDownload extends Fragment implements AdapterView.OnItemClickL
 
         productListView = (ListView) view.findViewById(R.id.listView);
 
-        productListAdapter = new ArrayAdapter<String>(activity, R.layout.salwan_download, R.id.textView4, downloadList);
+        productListAdapter = new ArrayAdapter<String>(activity, R.layout.salwan_download, R.id.preferenceView, downloadList);
         productListView.setAdapter(productListAdapter);
         productListView.setOnItemClickListener(this);
 
         imageView = view.findViewById(R.id.imageView3);
         progressBar = view.findViewById(R.id.progress);
         progressBar.setVisibility(View.INVISIBLE);
+
+        preference = new SharedPreference();
+        preference.onView(activity, view);
 
         return view;
     }
