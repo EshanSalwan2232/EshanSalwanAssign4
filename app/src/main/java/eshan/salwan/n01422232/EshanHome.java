@@ -1,5 +1,6 @@
 package eshan.salwan.n01422232;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
@@ -66,11 +67,12 @@ public class EshanHome extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        activity = getActivity();
+        sharedPreference = new SharedPreference();
     }
+
+    SharedPreference sharedPreference;
+    Activity activity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -83,20 +85,17 @@ public class EshanHome extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               CreateFile(v, container.getContext());
+               CreateFile(v, activity);
             }
         });
         return view;
     }
-//    String FullN = "Eshan Salwan";
-//        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Persistent", Context.MODE_PRIVATE);
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
-//        editor.putString("Name", FullN);
-//        editor.commit();
-//    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        sharedPreference.createPreference(activity);
+    }
 
     Calendar calendar;
     SimpleDateFormat simpleDateFormat;
