@@ -148,18 +148,24 @@ public class N01422232Weather extends Fragment implements AdapterView.OnItemSele
                 JSONObject weatherJson = new JSONObject(result);
                 JSONArray dataArray1= weatherJson.getJSONArray("weather");
                 String strResults="Weather\n";
+
+                JSONObject dataLatlon = weatherJson.getJSONObject("coord");
+                strResults += "lat: " +dataLatlon.getString("lat");
+                strResults += "\nlon: " +dataLatlon.getString("lon");
+
+                strResults += "\nname: " +weatherJson.getString("name");
+
                 for (int i = 0; i < dataArray1.length(); i++) {
                     JSONObject jsonObject = dataArray1.getJSONObject(i);
-                    strResults +="id: "+jsonObject.getString("id");
-                    strResults +="\nmain: "+jsonObject.getString("main");
                     strResults +="\ndescription: "+jsonObject.getString("description");
                 }
                 //
                 JSONObject dataObject= weatherJson.getJSONObject("main");
-                strResults +="\ntemp: "+dataObject.getString("temp");
                 strResults +="\nhumidity: "+dataObject.getString("humidity");
-                strResults +="\ntemp_min: "+dataObject.getString("temp_min");
-                strResults +="\ntemp_max: "+dataObject.getString("temp_max");
+
+                JSONObject dataCord= weatherJson.getJSONObject("sys");
+                strResults +="\ncountry: " +dataCord.getString("country");
+
                 //
                 displayWeather.setText(strResults);
                 //txtDisplayWeather.setText(weatherJson.getString("weather"));
