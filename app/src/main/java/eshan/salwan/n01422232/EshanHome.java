@@ -73,6 +73,7 @@ public class EshanHome extends Fragment {
 
     SharedPreference sharedPreference;
     Activity activity;
+    EditText editText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -81,11 +82,12 @@ public class EshanHome extends Fragment {
         View view = inflater.inflate(R.layout.eshan_home, container, false);
         CurrentDate(view);
 
+        editText = view.findViewById(R.id.editText);
         Button btn = view.findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               CreateFile(v, activity);
+               CreateFile(v, activity.getApplicationContext());
             }
         });
         return view;
@@ -110,22 +112,24 @@ public class EshanHome extends Fragment {
         textView.setText(Date);
     }
 
-    private void CreateFile(View v, Context context) {
-        EditText editText = v.findViewById(R.id.editText);
+private final static String FILE_NAME = "Eshan.txt";
 
+    private void CreateFile(View v, Context context) {
+        //create file
         try {
-            File file = new File(context.getFilesDir(), "Eshan.txt");
+            File file = new File(context.getFilesDir(), FILE_NAME);
                 if (!file.exists()) {
                     file.createNewFile();
                 }
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            //write file
+            FileOutputStream fileOutputStream;
+            fileOutputStream = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
             fileOutputStream.write(editText.getText().toString().getBytes(Charset.forName("UTF-8")));
-            Toast.makeText(context, "Write to %s successful", Toast.LENGTH_SHORT).show();
-            editText.setText("");
+            Toast.makeText(context, "Write to file successful", Toast.LENGTH_SHORT).show();
+
         }catch (NullPointerException | IOException e) {
             e.printStackTrace();
-            Toast.makeText(context, "Write to file %s failed",  Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Write to file failed",  Toast.LENGTH_SHORT).show();
         }
     }
-
 }
