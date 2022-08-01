@@ -20,7 +20,7 @@
                 android:icon="@drawable/weather_icon"
                 android:title="@string/weather" />
             <item
-                android:id="@+id/fileContent"
+                android:id="@+id/eshan_fileContent"
                 android:icon="@drawable/content"
                 android:title="File Content" />
             <item

@@ -76,7 +76,7 @@ public class N01422232Weather extends Fragment implements AdapterView.OnItemSele
         View view = inflater.inflate(R.layout.n01422232_weather, container, false);
         displayWeather = (TextView) view.findViewById(R.id.displayWeather);
 
-        Spinner spin = (Spinner) view.findViewById(R.id.simpleSpinner);
+        Spinner spin = (Spinner) view.findViewById(R.id.eshan_simpleSpinner);
         spin.setOnItemSelectedListener(this);
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, cityNames);

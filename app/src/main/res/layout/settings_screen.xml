@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout4"
+    android:id="@+id/eshan_frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/teal_700"
@@ -10,7 +10,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/eshan_textView3"
         android:layout_width="130dp"
         android:layout_height="38dp"
         android:layout_marginStart="140dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/eshan_imageView2"
         android:layout_width="398dp"
         android:layout_height="476dp"
         android:layout_marginStart="6dp"

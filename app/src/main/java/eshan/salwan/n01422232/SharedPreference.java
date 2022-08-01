@@ -4,7 +4,6 @@ package eshan.salwan.n01422232;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class SharedPreference {
@@ -30,7 +29,7 @@ public class SharedPreference {
 
     public void onView(Context context, View view) {
         SharedPreferences settings;
-        textView = (TextView) view.findViewById(R.id.preferenceView);
+        textView = (TextView) view.findViewById(R.id.eshan_preferenceView);
 
         settings = context.getSharedPreferences(PREFS_NAME,
                 Context.MODE_PRIVATE);

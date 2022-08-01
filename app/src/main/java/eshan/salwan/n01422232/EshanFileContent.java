@@ -78,9 +78,9 @@ public class EshanFileContent extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.eshan_file, container, false);
-    textView = (TextView) view.findViewById(R.id.fileContent);
+    textView = (TextView) view.findViewById(R.id.eshan_fileContent);
 
-    btnShow = (Button) view.findViewById(R.id.btnShow);
+    btnShow = (Button) view.findViewById(R.id.eshan_btnShow);
 
     btnShow.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -89,7 +89,7 @@ public class EshanFileContent extends Fragment {
         }
     });
 
-    btnDelete = (Button) view.findViewById(R.id.btnDelete);
+    btnDelete = (Button) view.findViewById(R.id.eshan_btnDelete);
     btnDelete.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {

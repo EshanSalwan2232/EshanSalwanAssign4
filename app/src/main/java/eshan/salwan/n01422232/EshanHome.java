@@ -3,17 +3,10 @@ package eshan.salwan.n01422232;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.Paint;
-import android.graphics.Shader;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.material.canvas.CanvasCompat;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -83,8 +74,8 @@ public class EshanHome extends Fragment {
         View view = inflater.inflate(R.layout.eshan_home, container, false);
         CurrentDate(view);
 
-        editText = view.findViewById(R.id.editText);
-        Button btn = view.findViewById(R.id.button);
+        editText = view.findViewById(R.id.eshan_editText);
+        Button btn = view.findViewById(R.id.eshan_button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +97,7 @@ public class EshanHome extends Fragment {
     TextView textView;
 
     private void CurrentDate(View view) {
-        textView = view.findViewById(R.id.date);
+        textView = view.findViewById(R.id.eshan_date);
         calendar = Calendar.getInstance();
         simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date = simpleDateFormat.format(calendar.getTime());

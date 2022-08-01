@@ -17,8 +17,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -83,14 +81,14 @@ public class SalwanDownload extends Fragment implements AdapterView.OnItemClickL
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.salwan_download, container, false);
 
-        productListView = (ListView) view.findViewById(R.id.listView);
+        productListView = (ListView) view.findViewById(R.id.eshan_listView);
 
-        productListAdapter = new ArrayAdapter<String>(activity, R.layout.salwan_download, R.id.preferenceView, downloadList);
+        productListAdapter = new ArrayAdapter<String>(activity, R.layout.salwan_download, R.id.eshan_preferenceView, downloadList);
         productListView.setAdapter(productListAdapter);
         productListView.setOnItemClickListener(this);
 
-        imageView = view.findViewById(R.id.imageView3);
-        progressBar = view.findViewById(R.id.progress);
+        imageView = view.findViewById(R.id.eshan_imageView3);
+        progressBar = view.findViewById(R.id.eshan_progress);
         progressBar.setVisibility(View.INVISIBLE);
 
         preference = new SharedPreference();
