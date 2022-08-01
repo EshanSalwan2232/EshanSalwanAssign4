@@ -67,7 +67,7 @@ public class N01422232Weather extends Fragment implements AdapterView.OnItemSele
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    String[] cityNames={getString(R.string.cityNameToronto),getString(R.string.cityNameTokyo),getString(R.string.cityNameMoscow),getString(R.string.cityNameMiami)};
+    String[] cityNames={"Toronto","Tokyo","Moscow","Miami"};
     private TextView displayWeather;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -67,7 +67,7 @@ public class SalwanDownload extends Fragment implements AdapterView.OnItemClickL
         }
     }
 
-    String downloadList[] = {getString(R.string.listDogs), getString(R.string.listFlowers), getString(R.string.listPlanets)};
+    String downloadList[] = {"Dogs", "Flowers", "Planets"};
     Activity activity;
     ListView productListView;
     ArrayAdapter<String> productListAdapter;
