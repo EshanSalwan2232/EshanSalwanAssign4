@@ -55,18 +55,18 @@ public class EshanActivity extends AppCompatActivity implements NavigationView.O
             this.drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             new AlertDialog.Builder(this)
-                    .setTitle("Eshan Salwan, N01422232")
+                    .setTitle(R.string.onBackTitle)
                     .setIcon(R.drawable.yellow_tri)
-                    .setMessage("Are you sure you want to exit?")
+                    .setMessage(R.string.onBackMessage)
                     .setCancelable(false)
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    .setPositiveButton(R.string.onBackPositive, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
                             finish();
                         }
                     })
-                    .setNegativeButton("No", null)
+                    .setNegativeButton(R.string.onBackNegative, null)
                     .show();
         }
     }
@@ -154,7 +154,7 @@ public class EshanActivity extends AppCompatActivity implements NavigationView.O
         switch (item.getItemId()) {
             case R.id.eshanHelp:
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("https://humber.ca/"));
+                i.setData(Uri.parse(getString(R.string.helpLink)));
                 startActivity(i);
                 break;
             case R.id.eshanSettings:

@@ -99,7 +99,7 @@ public class EshanHome extends Fragment {
     private void CurrentDate(View view) {
         textView = view.findViewById(R.id.eshan_date);
         calendar = Calendar.getInstance();
-        simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        simpleDateFormat = new SimpleDateFormat(getString(R.string.simpleDateFormat));
         Date = simpleDateFormat.format(calendar.getTime());
         textView.setText(Date);
     }
@@ -117,11 +117,11 @@ public class EshanHome extends Fragment {
             //write file
             fileOutputStream = new FileOutputStream(file, true);
             fileOutputStream.write(editText.getText().toString().getBytes(Charset.forName("UTF-8")));
-            Toast.makeText(context, "Write to file successful", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.fileCreateSuccess, Toast.LENGTH_SHORT).show();
 
         }catch (NullPointerException | IOException e) {
             e.printStackTrace();
-            Toast.makeText(context, "Write to file failed",  Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.fileCreateFail,  Toast.LENGTH_SHORT).show();
         }
     }
 }

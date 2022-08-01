@@ -16,7 +16,7 @@
         android:layout_marginStart="140dp"
         android:layout_marginTop="72dp"
         android:layout_marginEnd="141dp"
-        android:text="Under Construction"
+        android:text="@string/under_construction"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

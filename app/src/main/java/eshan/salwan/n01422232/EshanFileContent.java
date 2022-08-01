@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,17 +117,16 @@ public class EshanFileContent extends Fragment {
                     line = reader.readLine();
                 }
 
-            if (line == null){
-                textView.setText("No Content");
+            if (lines.isEmpty()){
+                textView.setText(getString(R.string.fileSetTextView));
             }else {
                 textView.setText(TextUtils.join("\n", lines));
+                Toast.makeText(context, R.string.readFileSuccess, Toast.LENGTH_SHORT).show();
             }
-
-            Toast.makeText(context, String.format("Read from file %s successful", FILE_NAME), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(context, String.format("Read from file %s failed", FILE_NAME), Toast.LENGTH_SHORT).show();
-            textView.setText("No Content");
+            Toast.makeText(context, R.string.readFileFail, Toast.LENGTH_SHORT).show();
+            textView.setText(R.string.fileNoContent);
 
         }
     }
@@ -136,10 +136,10 @@ public class EshanFileContent extends Fragment {
 
         if (file.exists()) {
             file.delete();
-            textView.setText("File Deleted");
-            Toast.makeText(context, String.format("File %s has been deleted", FILE_NAME), Toast.LENGTH_SHORT).show();
+            textView.setText(R.string.fileDeleted);
+            Toast.makeText(context, R.string.fileDeletedSuccess, Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, String.format("File %s doesn't exist", FILE_NAME), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.fileDeleteFail, Toast.LENGTH_SHORT).show();
         }
     }
 }

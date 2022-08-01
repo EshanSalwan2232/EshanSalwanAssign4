@@ -67,7 +67,7 @@ public class SalwanDownload extends Fragment implements AdapterView.OnItemClickL
         }
     }
 
-    String downloadList[] = {"Dogs", "Flowers", "Planets"};
+    String downloadList[] = {getString(R.string.listDogs), getString(R.string.listFlowers), getString(R.string.listPlanets)};
     Activity activity;
     ListView productListView;
     ArrayAdapter<String> productListAdapter;
@@ -102,13 +102,13 @@ public class SalwanDownload extends Fragment implements AdapterView.OnItemClickL
                             long id) {
         if (position == 0) {
             MyAsyncTask asyncTask = new MyAsyncTask();
-            asyncTask.execute("https://www.science.org/do/10.1126/science.abi5787/full/main_puppies_1280p.jpg");
+            asyncTask.execute(getString(R.string.downloadDogs));
         } else if (position == 1) {
             MyAsyncTask asyncTask = new MyAsyncTask();
-            asyncTask.execute("https://www.theknot.com/tk-media/images/8d7f9239-ddb5-47e7-8c81-eb39283c8262~rs_1536.h");
+            asyncTask.execute(getString(R.string.downloadFlowers));
         } else {
             MyAsyncTask asyncTask = new MyAsyncTask();
-            asyncTask.execute("https://exoplanets.nasa.gov/internal_resources/1806/");
+            asyncTask.execute(getString(R.string.downloadPlanets));
         }
     }
 
@@ -149,11 +149,7 @@ public class SalwanDownload extends Fragment implements AdapterView.OnItemClickL
             if (imageView != null) {
                 progressBar.setVisibility(View.INVISIBLE);
                 imageView.setImageBitmap(bitmap);
-//            }else {
-//                p.show();
-//            }
             }
-
         }
     }
 }

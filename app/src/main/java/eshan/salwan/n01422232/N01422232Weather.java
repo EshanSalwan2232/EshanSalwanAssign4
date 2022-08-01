@@ -67,7 +67,7 @@ public class N01422232Weather extends Fragment implements AdapterView.OnItemSele
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    String[] cityNames={"Toronto","Tokyo","Moscow","Miami"};
+    String[] cityNames={getString(R.string.cityNameToronto),getString(R.string.cityNameTokyo),getString(R.string.cityNameMoscow),getString(R.string.cityNameMiami)};
     private TextView displayWeather;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -102,10 +102,10 @@ public class N01422232Weather extends Fragment implements AdapterView.OnItemSele
     public void onNothingSelected(AdapterView<?> parent) {}
 
     private void openWeather(double latitude, double longitude) {
-        String url = "https://api.openweathermap.org/data/2.5/weather?";
-        url += "lat=" + latitude;
-        url += "&lon=" + longitude;
-        url += "&appid=9d29fb5e80e7d94e442a02a88c78eb71";
+        String url = getString(R.string.Url);
+        url += getString(R.string.urlLat) + latitude;
+        url += getString(R.string.urlLon) + longitude;
+        url += getString(R.string.urlKey);
 
         Log.d("URL",url);
         new ReadJSONFeedTask().execute(url);
@@ -147,44 +147,27 @@ public class N01422232Weather extends Fragment implements AdapterView.OnItemSele
                 //JSONArray jsonArray = new JSONArray(result);
                 //Uncomment the two rows below to parse weather data from OpenWeatherMap
                 JSONObject weatherJson = new JSONObject(result);
-                JSONArray dataArray1= weatherJson.getJSONArray("weather");
-                String strResults="Weather\n";
+                JSONArray dataArray1= weatherJson.getJSONArray(getString(R.string.weatherJSON));
+                String strResults=getString(R.string.weatherJSON) + "\n";
 
-                JSONObject dataLatlon = weatherJson.getJSONObject("coord");
-                strResults += "lat: " +dataLatlon.getString("lat");
-                strResults += "\nlon: " +dataLatlon.getString("lon");
+                JSONObject dataLatlon = weatherJson.getJSONObject(getString(R.string.coordJSON));
+                strResults += getString(R.string.latJSON)+ ": " +dataLatlon.getString(getString(R.string.latJSON));
+                strResults += "\n" +getString(R.string.lonJSON)+ ": " +dataLatlon.getString(getString(R.string.lonJSON));
 
-                strResults += "\nname: " +weatherJson.getString("name");
+                strResults += "\n"+getString(R.string.nameJSON)+ ": " +weatherJson.getString(getString(R.string.nameJSON));
 
                 for (int i = 0; i < dataArray1.length(); i++) {
                     JSONObject jsonObject = dataArray1.getJSONObject(i);
-                    strResults +="\ndescription: "+jsonObject.getString("description");
+                    strResults +="\n" +getString(R.string.descriptionJSON)+ ": " +jsonObject.getString(getString(R.string.descriptionJSON));
                 }
                 //
-                JSONObject dataObject= weatherJson.getJSONObject("main");
-                strResults +="\nhumidity: "+dataObject.getString("humidity");
+                JSONObject dataObject= weatherJson.getJSONObject(getString(R.string.mainJSON));
+                strResults +="\n" +getString(R.string.humidityJSON)+ ": " +dataObject.getString(getString(R.string.humidityJSON));
 
-                JSONObject dataCord= weatherJson.getJSONObject("sys");
-                strResults +="\ncountry: " +dataCord.getString("country");
+                JSONObject dataCord= weatherJson.getJSONObject(getString(R.string.sysJSON));
+                strResults +="\n" +getString(R.string.countryJSON)+ ": " +dataCord.getString(getString(R.string.countryJSON));
 
-                //
                 displayWeather.setText(strResults);
-                //txtDisplayWeather.setText(weatherJson.getString("weather"));
-                //
-                //uncomment the code below for parsing survey data
-                /*
-                JSONArray jsonArray = new JSONArray(result);
-                Log.i("JSON", "Number of surveys in feed: " + jsonArray.length());
-                //---print out the content of the json feed---
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    Log.d("survey",jsonObject.getString("surveyDate"));
-                    Toast.makeText(getBaseContext(),
-                            jsonObject.getString("surveyTime") +
-                                    " - " + jsonObject.getString("appeId"),
-                            Toast.LENGTH_SHORT).show();
-                }
-                */
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -15,4 +15,53 @@
     <string name="menu_home">Home</string>
     <string name="toast">Eshan Salwan</string>
     <string name="snackbar">Eshan Salwan</string>
+    <string name="onBackTitle">Eshan Salwan, N01422232</string>
+    <string name="onBackMessage">Are you sure you want to exit?</string>
+    <string name="onBackPositive">Yes</string>
+    <string name="onBackNegative">No</string>
+    <string name="helpLink">https://humber.ca/</string>
+    <string name="fileSetTextView">No Content</string>
+    <string name="readFileSuccess">Read from file successful</string>
+    <string name="readFileFail">Read from file failed</string>
+    <string name="fileNoContent">No Content</string>
+    <string name="fileDeleted">File Deleted</string>
+    <string name="fileDeletedSuccess">File has been deleted</string>
+    <string name="fileDeleteFail">File doesn\'t exist</string>
+    <string name="simpleDateFormat">dd-MM-yyyy</string>
+    <string name="fileName">Eshan.txt</string>
+    <string name="fileCreateSuccess">Write to file successful</string>
+    <string name="fileCreateFail">Write to file failed</string>
+    <string name="cityNameToronto">Toronto</string>
+    <string name="cityNameTokyo">Tokyo</string>
+    <string name="cityNameMoscow">Moscow</string>
+    <string name="cityNameMiami">Miami</string>
+    <string name="Url">https://api.openweathermap.org/data/2.5/weather?</string>
+    <string name="urlLat">lat=</string>
+    <string name="urlLon"><![CDATA[&lon=]]></string>
+    <string name="urlKey"><![CDATA[&appid=9d29fb5e80e7d94e442a02a88c78eb71]]></string>
+    <string name="weatherJSON">weather</string>
+    <string name="coordJSON">coord</string>
+    <string name="latJSON">lat</string>
+    <string name="lonJSON">lon</string>
+    <string name="nameJSON">name</string>
+    <string name="descriptionJSON">description</string>
+    <string name="mainJSON">main</string>
+    <string name="humidityJSON">humidity</string>
+    <string name="sysJSON">sys</string>
+    <string name="countryJSON">country</string>
+    <string name="listDogs">Dogs</string>
+    <string name="listFlowers">Flowers</string>
+    <string name="listPlanets">Planets</string>
+    <string name="downloadDogs">https://www.science.org/do/10.1126/science.abi5787/full/main_puppies_1280p.jpg</string>
+    <string name="downloadFlowers">https://www.theknot.com/tk-media/images/8d7f9239-ddb5-47e7-8c81-eb39283c8262~rs_1536.h</string>
+    <string name="downloadPlanets">https://exoplanets.nasa.gov/internal_resources/1806/</string>
+    <string name="file_content">File Content</string>
+    <string name="show_content">Show Content</string>
+    <string name="delete_file">Delete File</string>
+    <string name="enter_some_info">Enter some info</string>
+    <string name="button">Button</string>
+    <string name="salwan">Salwan</string>
+    <string name="textview">TextView</string>
+    <string name="download2">download</string>
+    <string name="under_construction">Under Construction</string>
 </resources>

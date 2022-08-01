@@ -15,4 +15,28 @@
     <string name="menu_home">Home</string>
     <string name="toast">Eshan Salwan</string>
     <string name="snackbar">Eshan Salwan</string>
+    <string name="onBackTitle">Eshan Salwan, N01422232</string>
+    <string name="onBackMessage">Are you sure you want to exit?</string>
+    <string name="onBackPositive">Yes</string>
+    <string name="onBackNegative">No</string>
+    <string name="helpLink">https://humber.ca/</string>
+    <string name="fileSetTextView">No Content</string>
+    <string name="readFileSuccess">Read from file successful</string>
+    <string name="readFileFail">Read from file failed</string>
+    <string name="fileNoContent">No Content</string>
+    <string name="fileDeleted">File Deleted</string>
+    <string name="fileDeletedSuccess">File has been deleted</string>
+    <string name="fileDeleteFail">File doesn\'t exist</string>
+    <string name="simpleDateFormat">dd-MM-yyyy</string>
+    <string name="fileName">Eshan.txt</string>
+    <string name="fileCreateSuccess">Write to file successful</string>
+    <string name="fileCreateFail">Write to file failed</string>
+    <string name="cityNameToronto">Toronto</string>
+    <string name="cityNameTokyo">Tokyo</string>
+    <string name="cityNameMoscow">Moscow</string>
+    <string name="cityNameMiami">Miami</string>
+    <string name="Url">https://api.openweathermap.org/data/2.5/weather?</string>
+    <string name="urlLat">lat=</string>
+    <string name="urlLon"><![CDATA[&lon=]]></string>
+    <string name="urlKey"><![CDATA[&appid=9d29fb5e80e7d94e442a02a88c78eb71]]></string>
 </resources>
